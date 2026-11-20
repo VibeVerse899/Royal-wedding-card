@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Royal Wedding Invitation</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 1. WAX SEAL ENVELOPE -->
+        <div id="envelope-screen">
+            <div class="envelope-flap"></div>
+            <p class="sub-title" style="z-index:2; margin-bottom: 5px;">You Are Cordially Invited</p>
+            <div class="wax-seal" onclick="openInvitation()">
+                <span>A &amp; A</span>
+            </div>
+            <p class="tap-hint">Tap the gold seal to open</p>
+        </div>
+
+        <!-- 2. PAGES CONTENT -->
+        <div class="pages-wrapper">
+            <!-- PAGE 1: VIDEO STYLE ARCH CARD & SCRATCH -->
+            <div id="page-home" class="page active">
+                <div class="royal-card">
+                    <div class="floral-top">🌸 ⚜️ 🌸</div>
+                    <p class="sub-title">Together with their families</p>
+                    <div class="couple-names">
+                        AARAV
+                        <span class="amp">&amp;</span>
+                        ANANYA
+                    </div>
+                    <div class="floral-divider">❧ ❁ ❧</div>
+                    <p class="invite-desc">
+                        Request the honour of your presence and blessings at the auspicious occasion of their wedding ceremony.
+                    </p>
+
+                    <div class="reveal-section">
+                        <div class="reveal-title">Reveal</div>
+                        <div class="reveal-subtitle">Scratch circles to uncover the date</div>
+                        <div class="scratch-row">
+                            <div class="scratch-box">
+                                <div class="scratch-secret">24<small>DATE</small></div>
+                                <canvas class="scratch-canvas" width="92" height="92"></canvas>
+                            </div>
+                            <div class="scratch-box">
+                                <div class="scratch-secret">NOV<small>MONTH</small></div>
+                                <canvas class="scratch-canvas" width="92" height="92"></canvas>
+                            </div>
+                            <div class="scratch-box">
+                                <div class="scratch-secret">2026<small>YEAR</small></div>
+                                <canvas class="scratch-canvas" width="92" height="92"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-gold" onclick="switchPage('page-events', document.querySelectorAll('.nav-btn'))">
+                        View Functions ➔
+                    </button>
+                </div>
+                <div class="creator-credit">Created &amp; Designed by <strong>Kunal Nagesh</strong></div>
+            </div>
+
+            <!-- PAGE 2: FUNCTIONS -->
+            <div id="page-events" class="page">
+                <div class="royal-card rect">
+                    <p class="sub-title">Celebration Schedule</p>
+                    <h2 class="section-heading">Wedding Functions</h2>
+                    <div class="events-grid">
+                        <div class="event-item">
+                            <h3>🌼 Haldi &amp; Mehndi</h3>
+                            <p><strong>Date:</strong> 23 November 2026</p>
+                            <p><strong>Time:</strong> 11:00 AM onwards</p>
+                            <p><strong>Theme:</strong> Floral Yellow &amp; Green</p>
+                        </div>
+                        <div class="event-item">
+                            <h3>🎶 Sangeet Sandhya</h3>
+                            <p><strong>Date:</strong> 23 November 2026</p>
+                            <p><strong>Time:</strong> 07:30 PM onwards</p>
+                            <p><strong>Theme:</strong> Royal Glam &amp; Dance</p>
+                        </div>
+                        <div class="event-item">
+                            <h3>🔥 Shubh Vivah</h3>
+                            <p><strong>Date:</strong> 24 November 2026</p>
+                            <p><strong>Muhurat:</strong> Pheras at 11:15 PM</p>
+                            <p><strong>Theme:</strong> Traditional Royal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="creator-credit">Created &amp; Designed by <strong>Kunal Nagesh</strong></div>
+            </div>
+
+            <!-- PAGE 3: VENUE -->
+            <div id="page-venue" class="page">
+                <div class="royal-card rect">
+                    <p class="sub-title">Where to Join Us</p>
+                    <h2 class="section-heading">The Royal Palace</h2>
+                    <div class="floral-divider">📍</div>
+                    <p class="venue-text">
+                        <strong>Grand Heritage Lawn &amp; Banquet</strong><br>
+                        Civil Lines, Jabalpur, Madhya Pradesh
+                    </p>
+                    <a href="https://google.com" target="_blank" rel="noopener" class="btn-gold">Open in Google Maps</a>
+                </div>
+                <div class="creator-credit">Created &amp; Designed by <strong>Kunal Nagesh</strong></div>
+            </div>
+
+            <!-- PAGE 4: RSVP -->
+            <div id="page-rsvp" class="page">
+                <div class="royal-card rect">
+                    <p class="sub-title">Confirm Your Presence</p>
+                    <h2 class="section-heading">RSVP</h2>
+                    <form class="rsvp-form" onsubmit="submitRSVP(event)">
+                        <input type="text" class="rsvp-input" id="guestName" placeholder="Your Full Name" required>
+                        <select class="rsvp-input" id="guestCount" aria-label="Number of Guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="Family">Full Family</option>
+                        </select>
+                        <select class="rsvp-input" id="attendingStatus" aria-label="Attending Status">
+                            <option value="Yes">Joyfully Accepts</option>
+                            <option value="No">Regretfully Declines</option>
+                        </select>
+                        <button type="submit" class="btn-gold" style="width: 100%;">Send Confirmation</button>
+                    </form>
+                    <p id="rsvp-msg"></p>
+                </div>
+                <div class="creator-credit">Created &amp; Designed by <strong>Kunal Nagesh</strong></div>
+            </div>
+        </div>
+
+        <!-- 3. BOTTOM NAVIGATION -->
+        <nav class="bottom-nav">
+            <button type="button" class="nav-btn active" onclick="switchPage('page-home', this)">
+                <span class="nav-icon">💌</span><span>Card</span>
+            </button>
+            <button type="button" class="nav-btn" onclick="switchPage('page-events', this)">
+                <span class="nav-icon">✨</span><span>Events</span>
+            </button>
+            <button type="button" class="nav-btn" onclick="switchPage('page-venue', this)">
+                <span class="nav-icon">📍</span><span>Venue</span>
+            </button>
+            <button type="button" class="nav-btn" onclick="switchPage('page-rsvp', this)">
+                <span class="nav-icon">✅</span><span>RSVP</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
